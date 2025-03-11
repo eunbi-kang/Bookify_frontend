@@ -1,0 +1,39 @@
+.layout {
+    min-height: 100vh;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f5e1d4;
+    padding: 0 20px;
+  }
+  
+  .logo {
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .user-dropdown {
+    cursor: pointer;
+  }
+  
+  .content {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .carousel h3 {
+    color: white;
+    background: #1890ff;
+    padding: 50px;
+  }
+  
+  .footer {
+    text-align: center;
+    background: #f5e1d4;
+    padding: 10px;
+  }
+  
