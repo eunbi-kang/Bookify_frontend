@@ -1,23 +1,49 @@
 .books-container {
-    padding: 20px;
-  }
-  
-  .search-bar {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .search-select {
-    width: 150px;
-  }
-  
-  .search-input {
-    width: 300px;
-  }
-  
-  .books-grid {
-    display: flex;
-    justify-content: center;
-  }
-  
+  padding: 20px;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px; /* 검색창 간격 추가 */
+}
+
+.search-select {
+  width: 150px;
+}
+
+.search-input {
+  width: 300px;
+}
+
+/* 📚 도서 목록 정렬 */
+.books-grid {
+  justify-content: center; /* ✅ `Row`에 적용 */
+}
+
+/* 📖 책 카드 스타일 */
+.books-grid .book-card {
+  width: 200px;  /* 📏 책 너비 고정 */
+  min-height: 340px; /* 📚 최소 높이 설정 (내용이 많아지면 자동 증가) */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  border-radius: 8px; /* ✅ 모서리를 둥글게 */
+  overflow: hidden; /* ✅ 내부 요소가 넘치지 않도록 */
+}
+
+/* 🖼️ 책 표지 스타일 */
+.books-grid .book-card .ant-card-cover img {
+  width: 100%;
+  height: 280px; /* ✅ 책 표지 높이 유지 */
+  object-fit: cover; /* ✅ 이미지를 꽉 채우되 비율 유지 */
+  border-top-left-radius: 8px; /* ✅ 이미지도 모서리를 둥글게 */
+  border-top-right-radius: 8px;
+}
+
+/* 📑 책 정보(제목, 저자) 스타일 */
+.books-grid .book-card .ant-card-meta {
+  padding: 10px;
+}

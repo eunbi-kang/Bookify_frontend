@@ -7,18 +7,18 @@ const { Option } = Select;
 
 // ✅ 예제 도서 데이터
 const booksData = [
-    { id: 1, title: "그 많던 싱아는 누가 다 먹었을까", author: "박완서", image: "https://via.placeholder.com/150" },
-    { id: 2, title: "The Phantom of the Opera", author: "Gaston Leroux", image: "https://via.placeholder.com/150" },
-    { id: 3, title: "The Lord of the Rings", author: "J.R.R. Tolkien", image: "https://via.placeholder.com/150" },
+    { id: 1, title: "그 많던 싱아는 누가 다 먹었을까", author: "박완서", image: "https://image.aladin.co.kr/product/12534/96/cover500/k732532362_1.jpg" },
+    { id: 2, title: "The Phantom of the Opera", author: "Gaston Leroux", image: "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788992228978.jpg" },
+    { id: 3, title: "The Lord of the Rings", author: "J.R.R. Tolkien", image: "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p28828_p_v8_ao.jpg" },
 ];
 
 const BooksPage = () => {
     const [books, setBooks] = useState(booksData);
-    const [searchTerm, setSearchTerm] = useState(""); // ✅ 상태 변수 유지
+    const [searchTerm, setSearchTerm] = useState("");
 
     // ✅ 검색어 입력 시 상태 업데이트
     const handleSearch = (value) => {
-        setSearchTerm(value); // 검색어 저장
+        setSearchTerm(value);
         const filteredBooks = booksData.filter(
             (book) =>
                 book.title.toLowerCase().includes(value.toLowerCase()) ||
@@ -26,8 +26,6 @@ const BooksPage = () => {
         );
         setBooks(filteredBooks);
     };
-
-
 
     return (
         <div className="books-container">
@@ -41,8 +39,8 @@ const BooksPage = () => {
                 </Select>
                 <Search
                     placeholder="검색어를 입력하세요"
-                    value={searchTerm}  // ✅ 입력 필드와 연결
-                    onChange={(e) => setSearchTerm(e.target.value)}  // ✅ 사용자가 입력할 때 상태 업데이트
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
                     onSearch={handleSearch}
                     enterButton
                     className="search-input"
@@ -54,8 +52,15 @@ const BooksPage = () => {
                 {books.map((book) => (
                     <Col key={book.id} xs={24} sm={12} md={8} lg={6}>
                         <Card
+                            className="book-card"
                             hoverable
-                            cover={<img alt={book.title} src={book.image} />}
+                            cover={
+                                <img
+                                    alt={book.title}
+                                    src={book.image}
+                                    onError={(e) => e.target.src = "https://via.placeholder.com/200x280"}
+                                />
+                            }
                         >
                             <Card.Meta title={book.title} description={book.author} />
                         </Card>
